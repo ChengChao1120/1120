@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户登录</title>
+</head>
+<body>
+    <h1>用户登录</h1>
+    <p>请输入您的用户名和密码</p>
+    <form action="#" method="post" onsubmit="return check()">
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="登录" >
+    </form>
+    <script>
+        function check(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username == "oo" && password == "123456"){
+            alert("用户名和密码正确");  
+            return true;          
+        }else{
+            alert("用户名或密码错误");      
+            location.reload();
+            return false;               
+        }
+        }
+    </script>
+</body>
+</html>

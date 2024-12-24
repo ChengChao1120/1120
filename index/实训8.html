@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Webpage</title>
+    <style>
+        body {
+            background-color: white;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns:1fr 2fr 2fr;
+            grid-template-rows: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        .item1, .item2, .item3, .item4, .item5, .item6 {
+            display: flex;                  /* 使用Flexbox布局 */
+            justify-content: center;        /* 水平居中 */
+            align-items: center;            /* 垂直居中 */
+            background-color: rgb(127, 212, 238);
+            padding: 10px;
+            border: 1px solid black;
+        }
+        .item1{
+            grid-area: 1/1/4/2;
+        }
+        nav{
+            text-align: center;
+        }
+        header{
+            background-image: url(img/pbn.png);
+            background-size: cover;
+            height: 500px;
+            position: relative;
+        }
+       header h1{
+        position: absolute;
+        left:20%;
+        top:50%;
+        font-size: 40px;
+       }
+    </style>
+</head>
+<body>
+    <header>
+     <nav>
+        <a href="#">个人主页</a>
+        <a href="#">自我介绍</a>
+        <a href="#">联系方式</a>
+    </nav>
+    <h1>欢迎来到我的个人主页!</h1>
+    </header>
+    <div class="grid-container">
+        <div class="item1">个人基本信息</div>
+        <div class="item2">工作经历</div>
+        <div class="item3">读书心得</div>
+        <div class="item4">个人照片</div>
+        <div class="item5">爱好</div>
+        <div class="item5">美食</div>
+        <div class="item5">游记</div> 
+    </div>
+</body>
+</html>

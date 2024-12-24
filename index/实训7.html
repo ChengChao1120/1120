@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片轮播</title>
+    <style>
+        #slideshow {
+            width: 960px;
+            height: 540px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        #slideshow h2{
+            background-color: antiquewhite;
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            margin: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!--用于显示图片轮播容器-->
+    <div id="slideshow"><h2></h2></div>
+    
+    <script>
+        // 定义图片数组
+    var images = [
+        'img/desktop_1.jpg',
+        'img/desktop_2.jpg',
+        'img/desktop_3.jpg',
+        'img/desktop_4.jpg'
+    ];
+    //定义图片标题数组
+    var titletext = [
+        '第1张图片',
+        '第2张图片',
+        '第3张图片',
+        '第4张图片'
+    ]
+
+    // 获取轮播图容器的引用
+    var container = document.getElementById('slideshow');
+    // 定义一个变量来保存当前显示的图片的索引
+    var currentIndex = 0;
+    var title = document.getElementById("slideshow").firstChild;
+    // 定义一个函数来切换到下一张图片
+    function nextImage() {
+        // 设置轮播图容器的背景图为当前索引对应的图片链接
+        container.style.backgroundImage = 'url(' + images[currentIndex] + ')';
+        // 设置图片标题为当前索引对应的图片标题
+        title.innerHTML = titletext[currentIndex];
+        // 更新当前索引
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    // 创建一个定时器,每隔1秒钟调用nextImage函数
+    var timer = setInterval(nextImage, 1000);
+
+    // 为轮播图容器添加鼠标事件监听器
+    container.addEventListener('mouseenter', function() {
+        // 鼠标悬停时,清除定时器
+        clearInterval(timer);
+    });
+
+    container.addEventListener('mouseleave', function() {
+        // 鼠标离开时,重新创建定时器
+        timer = setInterval(nextImage, 1000);
+    });
+
+    // 初始化轮播图,显示第一张图片
+    nextImage();
+    </script>
+</body>
+</html>
